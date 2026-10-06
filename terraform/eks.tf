@@ -26,6 +26,11 @@ module "eks" {
   # project demonstrates the standard IRSA pattern.
   enable_irsa = true
 
+  # Grants the IAM identity that runs `terraform apply` a Kubernetes
+  # access entry with cluster-admin permissions, so kubectl works
+  # immediately without hand-editing the aws-auth ConfigMap.
+  enable_cluster_creator_admin_permissions = true
+
   eks_managed_node_groups = {
     default = {
       instance_types = var.node_instance_types
