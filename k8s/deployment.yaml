@@ -5,7 +5,7 @@ metadata:
   labels:
     app: eks-devops-app
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: eks-devops-app
