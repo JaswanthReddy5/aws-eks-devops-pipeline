@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: eks-devops-app
-          image: ghcr.io/JaswanthReddy5/eks-devops-app:latest
+          image: ghcr.io/jaswanthreddy5/eks-devops-app:latest
           ports:
             - containerPort: 5000
           resources:
