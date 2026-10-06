@@ -1,0 +1,13 @@
+aws_region   = "us-east-1"
+project_name = "eks-devops"
+
+# Adjust if you want a different region's AZs
+azs                   = ["us-east-1a", "us-east-1b"]
+public_subnet_cidrs   = ["10.0.0.0/24", "10.0.1.0/24"]
+private_subnet_cidrs  = ["10.0.10.0/24", "10.0.11.0/24"]
+
+cluster_version      = "1.31"
+node_instance_types   = ["t3.medium"]
+node_desired_size     = 2
+node_min_size         = 2
+node_max_size         = 3

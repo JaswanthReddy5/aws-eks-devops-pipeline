@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-devops-app
+  labels:
+    app: eks-devops-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eks-devops-app
+  template:
+    metadata:
+      labels:
+        app: eks-devops-app
+    spec:
+      containers:
+        - name: eks-devops-app
+          image: ghcr.io/JaswanthReddy5/eks-devops-app:latest
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 20

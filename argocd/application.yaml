@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eks-devops-app
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    # Replace with your actual GitHub repo URL
+    repoURL: https://github.com/JaswanthReddy5/aws-eks-devops-pipeline.git
+    targetRevision: main
+    path: k8s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

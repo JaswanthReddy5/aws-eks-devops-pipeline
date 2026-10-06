@@ -1,0 +1,9 @@
+# Copy to backend.hcl and fill in with the outputs from the bootstrap
+# project (terraform/bootstrap). Then run:
+#   terraform init -backend-config=backend.hcl
+
+bucket         = "CHANGE-ME-eks-devops-tfstate-<your-aws-account-id>"
+key            = "eks-devops/terraform.tfstate"
+region         = "us-east-1"
+dynamodb_table = "eks-devops-tf-lock"
+encrypt        = true

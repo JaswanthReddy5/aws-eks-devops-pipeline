@@ -1,0 +1,16 @@
+# Minimal overrides for kube-prometheus-stack.
+# Everything else uses chart defaults — this is a learning/demo setup,
+# not a tuned production monitoring stack.
+
+grafana:
+  service:
+    type: ClusterIP
+  adminPassword: admin
+
+prometheus:
+  prometheusSpec:
+    retention: 1d
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi

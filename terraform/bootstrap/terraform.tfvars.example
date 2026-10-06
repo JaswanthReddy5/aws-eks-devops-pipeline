@@ -1,0 +1,6 @@
+# Copy this file to terraform.tfvars and set a globally-unique bucket name.
+# Example: eks-devops-tfstate-jdoe-428156589757
+
+aws_region        = "us-east-1"
+state_bucket_name = "CHANGE-ME-eks-devops-tfstate-<your-aws-account-id>"
+lock_table_name   = "eks-devops-tf-lock"

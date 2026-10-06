@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-devops-app
+  labels:
+    app: eks-devops-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: eks-devops-app
+  ports:
+    - port: 80
+      targetPort: 5000
+      protocol: TCP
